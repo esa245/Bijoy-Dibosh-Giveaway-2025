@@ -7,6 +7,7 @@ import { SuccessView } from './components/SuccessView';
 import { Leaderboard } from './components/Leaderboard';
 import { CommentSection } from './components/CommentSection';
 import { TermsModal, PrivacyModal } from './components/LegalModals';
+import { BottomAd } from './components/BottomAd';
 import { User, AppStep } from './types';
 
 const App: React.FC = () => {
@@ -35,7 +36,7 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-[#f0fdf4]">
       <Header />
       
-      <main className="flex-1 container mx-auto px-4 py-8">
+      <main className="flex-1 container mx-auto px-4 py-8 pb-32"> {/* Added extra bottom padding for Ad */}
         <div className="space-y-6">
           
           {/* Main Content Area */}
@@ -72,7 +73,7 @@ const App: React.FC = () => {
       {activeModal === 'terms' && <TermsModal onClose={() => setActiveModal(null)} />}
       {activeModal === 'privacy' && <PrivacyModal onClose={() => setActiveModal(null)} />}
 
-      <footer className="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+      <footer className="bg-gray-800 text-gray-400 py-6 text-center text-sm pb-28"> {/* Added extra padding for Ad visibility */}
         <p>© ২০২৫ বিজয় উল্লাস ক্যাম্পেইন। সর্বস্বত্ব সংরক্ষিত।</p>
         <div className="mt-2 flex justify-center gap-4 text-xs">
           <button 
@@ -90,6 +91,9 @@ const App: React.FC = () => {
           </button>
         </div>
       </footer>
+
+      {/* Sticky Bottom Ad */}
+      <BottomAd />
     </div>
   );
 };

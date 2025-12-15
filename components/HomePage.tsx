@@ -7,73 +7,80 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onStart }) => {
   return (
-    <div className="w-full max-w-md mx-auto relative z-10 px-4 pt-4 pb-12">
+    <div className="w-full max-w-md mx-auto relative z-10 px-4 pt-6 pb-16">
       
       {/* Banner Section */}
-      <div className="flex flex-col items-center justify-center text-center mb-8">
-         <div className="relative mb-4">
-            <div className="w-24 h-24 bg-bdGreen/10 rounded-full flex items-center justify-center animate-bounce-slow">
-               <Flag className="text-bdRed" size={48} fill="currentColor" />
+      <div className="flex flex-col items-center justify-center text-center mb-10">
+         <div className="relative mb-6">
+            <div className="w-28 h-28 bg-white/60 backdrop-blur-md border-4 border-bdRed/30 rounded-full flex items-center justify-center animate-bounce-slow shadow-xl">
+               <Flag className="text-bdRed drop-shadow-md" size={56} fill="currentColor" />
             </div>
-            <Star className="absolute top-0 right-0 text-yellow-400 fill-yellow-400 animate-pulse" size={24} />
+            <Star className="absolute -top-2 -right-2 text-yellow-500 fill-yellow-500 animate-pulse drop-shadow-sm" size={32} />
          </div>
 
-         <h2 className="text-3xl font-bold text-bdGreenDark mb-2">
+         <h2 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-bdGreenDark to-bdGreen mb-3 drop-shadow-sm leading-tight">
            ১৬ই ডিসেম্বর <br/> 
-           <span className="text-bdRed">মহান বিজয় দিবস</span>
+           <span className="text-bdRed drop-shadow-md">মহান বিজয় দিবস</span>
          </h2>
          
-         <div className="bg-bdGreen/10 px-4 py-1 rounded-full inline-block mb-4">
-            <span className="text-sm font-bold text-bdGreenDark tracking-widest uppercase">গিভএওয়ে ক্যাম্পেইন ২০২৫</span>
+         <div className="bg-white border-2 border-bdGreen/20 px-6 py-2 rounded-full inline-block mb-6 shadow-md transform hover:scale-105 transition-transform">
+            <span className="text-base font-extrabold text-bdGreenDark tracking-widest uppercase">গিভএওয়ে ক্যাম্পেইন ২০২৫</span>
          </div>
          
-         <p className="text-gray-600 text-center leading-relaxed font-medium">
-           বিজয়ের আনন্দ ছড়িয়ে দিন সবার মাঝে এবং জিতে নিন আকর্ষণীয় পুরস্কার!
-         </p>
+         <div className="bg-white/40 backdrop-blur-sm p-4 rounded-2xl border border-white/50">
+           <p className="text-gray-900 text-lg text-center leading-relaxed font-bold">
+             বিজয়ের আনন্দ ছড়িয়ে দিন সবার মাঝে এবং <br/>
+             <span className="text-bdRed underline decoration-wavy underline-offset-4 decoration-2">জিতে নিন আকর্ষণীয় পুরস্কার!</span>
+           </p>
+         </div>
       </div>
 
-      {/* Prizes Section - Direct on background */}
-      <div className="mb-10">
-         <h3 className="font-bold text-gray-800 text-lg mb-4 flex items-center gap-2 border-b border-gray-200 pb-2">
-           <Award className="text-bdRed" size={20} />
+      {/* Prizes Section - Highlighted Rows */}
+      <div className="mb-12 space-y-5">
+         <h3 className="text-center font-black text-xl text-bdGreenDark mb-6 uppercase tracking-wider flex items-center justify-center gap-3">
+           <span className="w-12 h-1.5 bg-bdRed rounded-full opacity-80"></span>
            আজকের পুরস্কার
+           <span className="w-12 h-1.5 bg-bdRed rounded-full opacity-80"></span>
          </h3>
          
-         <div className="space-y-6">
-           {/* Item 1 */}
-           <div className="flex items-center gap-4 group">
-              <div className="bg-bdRed/10 p-3 rounded-full text-bdRed group-hover:scale-110 transition-transform">
-                  <Gift size={28} />
-              </div>
-              <div>
-                  <h4 className="font-bold text-gray-800 text-lg">১ম পুরস্কার</h4>
-                  <p className="text-gray-600 text-sm">১০টি নতুন iPhone 15</p>
-              </div>
-           </div>
+         {/* Prize 1 */}
+         <div className="flex items-center gap-5 p-4 rounded-2xl bg-gradient-to-r from-red-50 via-white/50 to-transparent border-l-8 border-bdRed shadow-sm hover:shadow-md transition-shadow">
+             <div className="bg-white p-4 rounded-full shadow-lg text-bdRed shrink-0 ring-4 ring-red-50">
+                 <Gift size={32} strokeWidth={2.5} />
+             </div>
+             <div>
+                 <div className="bg-bdRed text-white text-[10px] font-bold px-2 py-0.5 rounded w-fit mb-1">১ম পুরস্কার</div>
+                 <h4 className="font-black text-gray-900 text-2xl leading-none">iPhone 15</h4>
+                 <p className="text-gray-700 font-bold text-sm mt-1">সর্বমোট ১০ জন বিজয়ী</p>
+             </div>
+         </div>
 
-           {/* Item 2 */}
-           <div className="flex items-center gap-4 group">
-              <div className="bg-bdGreen/10 p-3 rounded-full text-bdGreen group-hover:scale-110 transition-transform">
-                  <CircleDollarSign size={28} />
-              </div>
-              <div>
-                  <h4 className="font-bold text-gray-800 text-lg">২য় পুরস্কার</h4>
-                  <p className="text-gray-600 text-sm">১০,০০০ টাকা নিশ্চিত ক্যাশ প্রাইজ</p>
-              </div>
-           </div>
+         {/* Prize 2 */}
+         <div className="flex items-center gap-5 p-4 rounded-2xl bg-gradient-to-r from-green-50 via-white/50 to-transparent border-l-8 border-bdGreen shadow-sm hover:shadow-md transition-shadow">
+             <div className="bg-white p-4 rounded-full shadow-lg text-bdGreen shrink-0 ring-4 ring-green-50">
+                 <CircleDollarSign size={32} strokeWidth={2.5} />
+             </div>
+             <div>
+                 <div className="bg-bdGreen text-white text-[10px] font-bold px-2 py-0.5 rounded w-fit mb-1">২য় পুরস্কার</div>
+                 <h4 className="font-black text-gray-900 text-2xl leading-none">১০,০০০ টাকা</h4>
+                 <p className="text-gray-700 font-bold text-sm mt-1">নিশ্চিত ক্যাশ প্রাইজ</p>
+             </div>
          </div>
       </div>
 
       {/* Action Button */}
-      <button
-        onClick={onStart}
-        className="w-full bg-bdRed hover:bg-red-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3 text-lg border-b-4 border-red-800"
-      >
-        অংশগ্রহণ করুন
-        <ArrowRight size={24} />
-      </button>
+      <div className="relative group">
+        <div className="absolute -inset-1 bg-gradient-to-r from-bdRed to-orange-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+        <button
+          onClick={onStart}
+          className="relative w-full bg-gradient-to-r from-bdRed to-red-600 hover:to-red-700 text-white font-black py-5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 text-xl ring-4 ring-red-100 hover:ring-red-200 uppercase tracking-wide transform group-hover:-translate-y-1"
+        >
+          অংশগ্রহণ করুন
+          <ArrowRight size={28} strokeWidth={3} className="animate-pulse" />
+        </button>
+      </div>
       
-      <p className="text-xs text-center text-gray-400 mt-6">
+      <p className="text-xs font-bold text-center text-bdGreenDark/60 mt-8 bg-bdGreen/5 py-2 rounded-lg mx-auto w-3/4">
         *শর্তাবলী প্রযোজ্য। লটারি ২০ই ডিসেম্বর অনুষ্ঠিত হবে।
       </p>
     </div>
