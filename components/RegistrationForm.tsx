@@ -28,24 +28,24 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) 
     <div className="bg-white rounded-2xl shadow-xl w-full max-w-md mx-auto relative z-10 overflow-hidden">
       
       {/* Attached Header Section - Prizes */}
-      <div className="grid grid-cols-2 border-b border-gray-100">
+      <div className="grid grid-cols-2 border-b border-blue-100">
         {/* Prize 1 */}
-        <div className="bg-gray-900 text-white p-5 flex flex-col items-center justify-center text-center relative group">
+        <div className="bg-blue-600 text-white p-5 flex flex-col items-center justify-center text-center relative group">
             <div className="absolute top-0 left-0 bg-bdRed text-white text-[10px] font-bold px-3 py-1 rounded-br-lg z-10 shadow-sm">১ম পুরস্কার</div>
             <div className="transform group-hover:scale-110 transition-transform duration-300">
-              <Gift className="text-yellow-400 mb-2" size={28} />
+              <Gift className="text-yellow-300 mb-2" size={28} />
             </div>
-            <p className="text-xs text-gray-400 mb-0.5">১০ জন পাবেন</p>
-            <p className="font-bold text-sm text-yellow-400 leading-tight">১০টি iPhone 15</p>
+            <p className="text-xs text-blue-100 mb-0.5">১০ জন পাবেন</p>
+            <p className="font-bold text-sm text-white leading-tight">১০টি iPhone 15</p>
         </div>
         
         {/* Prize 2 */}
-        <div className="bg-emerald-50 text-bdGreenDark p-5 flex flex-col items-center justify-center text-center relative group border-l border-emerald-100">
+        <div className="bg-blue-50 text-blue-900 p-5 flex flex-col items-center justify-center text-center relative group border-l border-blue-100">
             <div className="absolute top-0 right-0 bg-bdGreen text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg z-10 shadow-sm">২য় পুরস্কার</div>
             <div className="transform group-hover:scale-110 transition-transform duration-300">
-              <CircleDollarSign className="text-bdGreen mb-2" size={28} />
+              <CircleDollarSign className="text-blue-600 mb-2" size={28} />
             </div>
-            <p className="text-xs text-emerald-600 mb-0.5">১০ জন পাবেন</p>
+            <p className="text-xs text-blue-600 mb-0.5">১০ জন পাবেন</p>
             <p className="font-bold text-sm leading-tight">১০,০০০ টাকা</p>
         </div>
       </div>
