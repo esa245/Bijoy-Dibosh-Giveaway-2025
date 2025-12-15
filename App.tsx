@@ -10,11 +10,9 @@ import { TermsModal, PrivacyModal } from './components/LegalModals';
 import { User, AppStep } from './types';
 
 const App: React.FC = () => {
-  // Changed initial step from FORM to HOME
   const [step, setStep] = useState<AppStep>(AppStep.HOME);
   const [user, setUser] = useState<User | null>(null);
   
-  // Modal states
   const [activeModal, setActiveModal] = useState<'terms' | 'privacy' | null>(null);
 
   const handleStart = () => {
@@ -40,24 +38,18 @@ const App: React.FC = () => {
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="space-y-6">
           
-          {/* Main Content Area based on Step */}
-          <div className="transition-all duration-500 ease-in-out">
+          {/* Main Content Area */}
+          <div className="animate-fade-in">
             {step === AppStep.HOME && (
-              <div className="animate-fade-in">
-                <HomePage onStart={handleStart} />
-              </div>
+              <HomePage onStart={handleStart} />
             )}
 
             {step === AppStep.FORM && (
-              <div className="animate-fade-in-right">
-                <RegistrationForm onSubmit={handleUserSubmit} />
-              </div>
+              <RegistrationForm onSubmit={handleUserSubmit} />
             )}
 
             {step === AppStep.CHALLENGE && user && (
-              <div className="animate-fade-in">
-                <ShareChallenge user={user} onComplete={handleChallengeComplete} />
-              </div>
+              <ShareChallenge user={user} onComplete={handleChallengeComplete} />
             )}
 
             {step === AppStep.SUCCESS && user && (
@@ -65,7 +57,7 @@ const App: React.FC = () => {
             )}
           </div>
 
-          {/* Social Proof Section - Visible after Home Screen */}
+          {/* Social Proof Section - Hidden on Home */}
           {step !== AppStep.HOME && (
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto animate-fade-in">
                <Leaderboard />
