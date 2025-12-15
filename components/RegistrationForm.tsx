@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { User } from '../types';
-import { Smartphone, User as UserIcon, ArrowRight, Gift, Banknote } from 'lucide-react';
+import { Smartphone, User as UserIcon, ArrowRight, Gift, CircleDollarSign } from 'lucide-react';
 
 interface RegistrationFormProps {
   onSubmit: (user: User) => void;
@@ -25,14 +25,14 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) 
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 w-full max-w-md mx-auto border-t-4 border-bdGreen">
+    <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 w-full max-w-md mx-auto border-t-4 border-bdGreen relative z-10">
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-gray-800">অংশগ্রহণ করুন</h2>
         <p className="text-gray-500 text-sm mt-1">আইফোন এবং ক্যাশ প্রাইজ জিততে নিচের ফর্মটি পূরণ করুন</p>
       </div>
 
       {/* Prize Highlights */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-2 gap-4 mb-6 relative z-20">
         <div className="bg-gray-800 text-white p-3 rounded-xl shadow-lg border border-gray-700 flex flex-col items-center justify-center text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-bdRed text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">১ম পুরস্কার</div>
             <Gift className="text-yellow-400 mb-1" size={24} />
@@ -42,7 +42,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) 
         
         <div className="bg-green-50 text-bdGreenDark p-3 rounded-xl shadow border border-bdGreen flex flex-col items-center justify-center text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-bdGreen text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">২য় পুরস্কার</div>
-            <Banknote className="text-bdGreen mb-1" size={24} />
+            <CircleDollarSign className="text-bdGreen mb-1" size={24} />
             <p className="text-xs text-green-700">১০ জন পাবেন</p>
             <p className="font-bold text-sm">১০,০০০ টাকা</p>
         </div>
