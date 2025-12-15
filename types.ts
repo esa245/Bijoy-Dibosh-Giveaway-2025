@@ -17,6 +17,7 @@ export interface LeaderboardEntry {
 }
 
 export enum AppStep {
+  HOME = 'HOME',
   FORM = 'FORM',
   CHALLENGE = 'CHALLENGE',
   SUCCESS = 'SUCCESS'

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
+import { HomePage } from './components/HomePage';
 import { RegistrationForm } from './components/RegistrationForm';
 import { ShareChallenge } from './components/ShareChallenge';
 import { SuccessView } from './components/SuccessView';
@@ -9,11 +10,17 @@ import { TermsModal, PrivacyModal } from './components/LegalModals';
 import { User, AppStep } from './types';
 
 const App: React.FC = () => {
-  const [step, setStep] = useState<AppStep>(AppStep.FORM);
+  // Changed initial step from FORM to HOME
+  const [step, setStep] = useState<AppStep>(AppStep.HOME);
   const [user, setUser] = useState<User | null>(null);
   
   // Modal states
   const [activeModal, setActiveModal] = useState<'terms' | 'privacy' | null>(null);
+
+  const handleStart = () => {
+    setStep(AppStep.FORM);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleUserSubmit = (userData: User) => {
     setUser(userData);
@@ -35,8 +42,16 @@ const App: React.FC = () => {
           
           {/* Main Content Area based on Step */}
           <div className="transition-all duration-500 ease-in-out">
+            {step === AppStep.HOME && (
+              <div className="animate-fade-in">
+                <HomePage onStart={handleStart} />
+              </div>
+            )}
+
             {step === AppStep.FORM && (
-              <RegistrationForm onSubmit={handleUserSubmit} />
+              <div className="animate-fade-in-right">
+                <RegistrationForm onSubmit={handleUserSubmit} />
+              </div>
             )}
 
             {step === AppStep.CHALLENGE && user && (
@@ -50,11 +65,13 @@ const App: React.FC = () => {
             )}
           </div>
 
-          {/* Social Proof Section (Visible always, but more relevant after step 1) */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-             <Leaderboard />
-             <CommentSection currentUser={user} />
-          </div>
+          {/* Social Proof Section - Visible after Home Screen */}
+          {step !== AppStep.HOME && (
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto animate-fade-in">
+               <Leaderboard />
+               <CommentSection currentUser={user} />
+            </div>
+          )}
 
         </div>
       </main>
